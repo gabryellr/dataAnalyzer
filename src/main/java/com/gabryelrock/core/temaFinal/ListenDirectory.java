@@ -27,7 +27,7 @@ public class ListenDirectory {
         try{
             WatchService watchService = FileSystems.getDefault().newWatchService();
             path.register(watchService, StandardWatchEventKinds.ENTRY_CREATE);
-            while (true){
+
                 WatchKey key;
                 while ((key = watchService.take()) != null) {
                     for (WatchEvent<?> event : key.pollEvents()) {
@@ -37,7 +37,7 @@ public class ListenDirectory {
                     }
                     key.reset();
                 }
-            }
+
         }  catch (IOException | InterruptedException error){
             throw new ErrorListenDirectory("error while listening the folder");
         }
