@@ -31,4 +31,9 @@ public class Config {
         return new DatFile();
     }
 
+    @Bean
+    public ListenDirectory listenDirectory(){
+        return new ListenDirectory();
+    }
+
 }
